@@ -10,12 +10,15 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{68D70E3A-609F-4F7B-8836-4D1FAB706B3D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{03FA7BFE-D682-435D-9720-471D27018344}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{708DF9A8-C447-4E63-ABEE-E39370C808AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaDelivery.Data", "PizzaDelivery.Data\PizzaDelivery.Data.csproj", "{4D5233C7-A0AC-4BBF-AA83-DF399BDCEC91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaDelivery.Data", "PizzaDelivery.Data\PizzaDelivery.Data.csproj", "{4D5233C7-A0AC-4BBF-AA83-DF399BDCEC91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaDelivery.WpfClient", "PizzaDelivery.WpfClient\PizzaDelivery.WpfClient.csproj", "{33E79C80-E784-45F4-87D9-8007D0E98B00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaDelivery.WpfClient", "PizzaDelivery.WpfClient\PizzaDelivery.WpfClient.csproj", "{33E79C80-E784-45F4-87D9-8007D0E98B00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
