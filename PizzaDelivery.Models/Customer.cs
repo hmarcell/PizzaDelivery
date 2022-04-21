@@ -17,11 +17,15 @@ namespace PizzaDelivery.Models
 
         [StringLength(50)]
         public string Name { get; set; }
-        public string Address { get; set; }
-        public int Distance { get; set; }           //Distance from the restaurant
 
         [Required]
-        public int PhoneNumber { get; set; }
+        [StringLength(50)]
+        public Dictionary<string, float> Addresses { get; set; }              // float: distance from the restaurant, used for calculating the travel time of the couriers
+
+        public string SelectedAddress { get; set; }        
+
+        [Required]
+        public string PhoneNumber { get; set; }
 
         [ForeignKey(nameof(Order))]
         public int OrderId { get; set; }
