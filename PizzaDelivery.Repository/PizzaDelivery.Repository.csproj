@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PizzaDelivery.Data\PizzaDelivery.Data.csproj" />
+    <ProjectReference Include="..\PizzaDelivery.Models\PizzaDelivery.Models.csproj" />
+  </ItemGroup>
+
+</Project>
