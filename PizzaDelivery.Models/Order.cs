@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PizzaDelivery.Models
 {
-    public enum OrderStatus { Cooking, EnRoute }
+    public enum OrderStatus { Cooking, EnRoute, Delivered }
     [Table("orders")]
     public class Order
     {

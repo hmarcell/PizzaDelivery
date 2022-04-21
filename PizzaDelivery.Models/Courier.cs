@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PizzaDelivery.Models
 {
-    public enum CourierState { Waiting, Delivering, ComingBack}
+    public enum CourierStatus { Waiting, Delivering, ComingBack}
     [Table("couriers")]
     public class Courier
     {
@@ -26,6 +26,6 @@ namespace PizzaDelivery.Models
         [NotMapped]
         public virtual Order Order { get; set; }
 
-        public CourierState State { get; set; }
+        public CourierStatus Status { get; set; }
     }
 }
