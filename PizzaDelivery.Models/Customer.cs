@@ -20,6 +20,7 @@ namespace PizzaDelivery.Models
 
         [Required]
         [StringLength(50)]
+        [NotMapped]         //remove
         public Dictionary<string, float> Addresses { get; set; }              // float: distance from the restaurant, used for calculating the travel time of the couriers
 
         public string SelectedAddress { get; set; }        

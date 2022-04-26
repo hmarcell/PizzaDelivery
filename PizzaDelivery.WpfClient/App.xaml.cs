@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
+using PizzaDelivery.Data;
 using PizzaDelivery.Repository;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace PizzaDelivery.WpfClient
                     .AddTransient<ICustomerRepository, CustomerRepository>()
                     .AddTransient<IPizzaRepository, PizzaRepository>()
                     .AddTransient<IOrderRepository, OrderRepository>()
+                    .AddTransient<DeliveryDbContext, DeliveryDbContext>()
                     .BuildServiceProvider()
                 );
         }
