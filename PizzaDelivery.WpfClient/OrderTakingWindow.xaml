@@ -1,4 +1,4 @@
-﻿<Window x:Class="PizzaDelivery.WpfClient.MainWindow"
+﻿<Window x:Class="PizzaDelivery.WpfClient.OrderTakingWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,19 +6,22 @@
         xmlns:local="clr-namespace:PizzaDelivery.WpfClient"
         xmlns:vms="clr-namespace:PizzaDelivery.WpfClient.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-
+        Title="OrderTakingWindow" Height="450" Width="531">
     <Window.DataContext>
-        <vms:MainWindowViewModel/>
+        <vms:OrderTakingViewModel/>
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding Pizzas}" x:Name="lb" Grid.Column="0">
-            
-        </ListBox>
-        <Button Grid.Column="1" Content="gomb" Command="{Binding OpenOrderTakingWindow}"></Button>
+        <StackPanel Grid.Column="0">
+            <Label Content="Phone Number:" Background="LightGreen" Padding="5"></Label>
+            <TextBox Padding="5"></TextBox>
+            <Button Content="Select" Padding="5"></Button> <!--ez majd berakja a stackpanelbe a cimeket ha megegyezik a telefonszam-->
+            <StackPanel>
+                
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

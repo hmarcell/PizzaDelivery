@@ -1,6 +1,5 @@
-﻿using PizzaDelivery.Data;
-using PizzaDelivery.Models;
-using PizzaDelivery.Repository;
+﻿using PizzaDelivery.Repository;
+using PizzaDelivery.WpfClient.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,20 +12,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PizzaDelivery.WpfClient
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for OrderTakingWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class OrderTakingWindow : Window
     {
-        public MainWindow()
+        public OrderTakingWindow(IMainRepository Repository)
         {
             InitializeComponent();
+            this.DataContext = new OrderTakingViewModel(Repository);
         }
-
     }
 }
