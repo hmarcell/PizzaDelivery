@@ -26,6 +26,9 @@ namespace PizzaDelivery.Models
 
         [ForeignKey(nameof(Pizza))]
         public int PizzaId { get; set; }
+
+        [ForeignKey(nameof(Address))]
+        public int AddressId { get; set; }
         
         [NotMapped]
         public virtual Customer Customer { get; set; }
@@ -35,5 +38,8 @@ namespace PizzaDelivery.Models
 
         [NotMapped]
         public virtual Pizza Pizza { get; set; }
+
+        [NotMapped]
+        public virtual Address Address { get; set; }
     }
 }

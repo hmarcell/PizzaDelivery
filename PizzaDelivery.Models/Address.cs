@@ -28,6 +28,12 @@ namespace PizzaDelivery.Models
         [NotMapped]
         public virtual Customer Customer { get; set; }
 
+        [ForeignKey(nameof(Order))]
+        public int OrderId { get; set; }
+
+        [NotMapped]
+        public virtual Order Order { get; set; }
+
         public override string ToString()
         {
             return $"{Street} ({Distance}km)";

@@ -53,6 +53,12 @@ namespace PizzaDelivery.Data
                 .HasForeignKey<Order>(o => o.CustomerId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<Order>()                        //order-address
+                .HasOne(o => o.Address)
+                .WithOne(a => a.Order)
+                .HasForeignKey<Order>(o => o.AddressId)
+                .OnDelete(DeleteBehavior.NoAction);
+
             modelBuilder.Entity<Address>()                      //address-customer
                 .HasOne(a => a.Customer)
                 .WithMany(c => c.Addresses)
