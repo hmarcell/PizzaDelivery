@@ -19,7 +19,7 @@ namespace PizzaDelivery.WpfClient
     {
         public App()
         {
-            Ioc.Default.ConfigureServices(      //repobuilder 
+            Ioc.Default.ConfigureServices(
                     new ServiceCollection()
                     .AddTransient<ICourierRepository, CourierRepository>()
                     .AddTransient<ICustomerRepository, CustomerRepository>()

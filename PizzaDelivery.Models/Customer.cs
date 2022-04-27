@@ -32,7 +32,7 @@ namespace PizzaDelivery.Models
         public int OrderId { get; set; }
 
         [NotMapped]
-        public Order Order { get; set; }
+        public virtual Order Order { get; set; }
         public override string ToString()
         {
             return $"{Id}. {Name} {PhoneNumber}";

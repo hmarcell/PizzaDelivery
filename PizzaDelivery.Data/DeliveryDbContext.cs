@@ -6,7 +6,6 @@ using System.Collections.Generic;
 namespace PizzaDelivery.Data
 {
     //Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Db.mdf;Integrated Security=True
-    //https://stackoverflow.com/questions/28137341/code-first-optional-one-to-one-relationship
     public class DeliveryDbContext : DbContext
     {
         public DeliveryDbContext(DbContextOptions<DeliveryDbContext> options) : base(options)
@@ -45,14 +44,12 @@ namespace PizzaDelivery.Data
                 .HasOne(o => o.Courier)
                 .WithOne(c => c.Order)
                 .HasForeignKey<Order>(o => o.CourierId)
-                .HasForeignKey<Courier>(c => c.OrderId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Order>()                        //order-customer
                 .HasOne(o => o.Customer)
                 .WithOne(c => c.Order)
                 .HasForeignKey<Order>(o => o.CustomerId)
-                .HasForeignKey<Customer>(c => c.OrderId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             DbSeed(modelBuilder);

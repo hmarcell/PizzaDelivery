@@ -12,9 +12,9 @@ namespace PizzaDelivery.Repository
     {
         DeliveryDbContext DbContext;
 
-        public OrderRepository(DeliveryDbContext dbContext)
+        public OrderRepository(DeliveryDbContext DbContext)
         {
-            DbContext = dbContext;
+            this.DbContext = DbContext;
         }
         public void Create(Order order)
         {
