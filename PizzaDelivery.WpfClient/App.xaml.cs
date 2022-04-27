@@ -26,6 +26,7 @@ namespace PizzaDelivery.WpfClient
                     .AddTransient<IPizzaRepository, PizzaRepository>()
                     .AddTransient<IOrderRepository, OrderRepository>()
                     .AddTransient<IAddressRepository, AddressRepository>()
+                    .AddTransient<IMainRepository, MainRepository>()
                     .AddTransient<DeliveryDbContext, DeliveryDbContext>()
                     .BuildServiceProvider()
                 );
