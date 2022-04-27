@@ -19,7 +19,7 @@
             <Label Content="Phone Number:" Background="LightGreen" Padding="5"></Label>
             <TextBox Padding="5"></TextBox>                                 <!--itt hibakezelés: valoban telefonszámot kapunk-->
             <Button Content="Select" Padding="5"></Button>                  <!--ez majd berakja a stackpanelbe a cimeket ha megegyezik a telefonszam-->
-            <StackPanel>
+            <StackPanel>                                                    <!--az új ablakot async kell nyitni-->
                 
             </StackPanel>
         </StackPanel>
