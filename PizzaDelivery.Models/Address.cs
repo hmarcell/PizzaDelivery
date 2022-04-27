@@ -27,5 +27,10 @@ namespace PizzaDelivery.Models
 
         [NotMapped]
         public virtual Customer Customer { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Street} ({Distance}km)";
+        }
     }
 }
