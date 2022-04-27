@@ -24,20 +24,22 @@ namespace PizzaDelivery.WpfClient
     public partial class MainWindow : Window
     {
         DeliveryDbContext db;
-        CourierRepository cr;
-        public List<Courier> Couriers { get; set; }
+        CustomerRepository cr;
+        public List<Customer> Customers { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             Setup(new DeliveryDbContext());
-            Couriers = cr.ReadAll().ToList();
+            Customers = cr.ReadAll().ToList();
+            List<List<Address>> addresses = new List<List<Address>>();
+            Customers.ForEach(x => addresses.Add(x.Addresses.ToList()));         
             ;
         }
 
         public void Setup(DeliveryDbContext db)         
         {
             this.db = db;
-            cr = new CourierRepository(db);
+            cr = new CustomerRepository(db);
         }
     }
 }

@@ -20,6 +20,7 @@ namespace PizzaDelivery.Data
         public virtual DbSet<Pizza> Pizzas { get; set; }
         public virtual DbSet<Courier> Couriers { get; set; }      
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -52,6 +53,12 @@ namespace PizzaDelivery.Data
                 .HasForeignKey<Order>(o => o.CustomerId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<Address>()                      //address-customer
+                .HasOne(a => a.Customer)
+                .WithMany(c => c.Addresses)
+                .HasForeignKey(a => a.CustomerId)
+                .OnDelete(DeleteBehavior.Cascade);
+
             DbSeed(modelBuilder);
 
         }
@@ -67,26 +74,29 @@ namespace PizzaDelivery.Data
             Courier courierCharlie = new Courier() { Id = 1, Name = "Courier Charlie" };
             Courier courierChloe = new Courier() { Id = 2, Name = "Courier Chloe" };
 
-            Customer customer1 = new Customer() { Id = 7, Name = "John Doe", Addresses = new Dictionary<string, float>(), PhoneNumber = "703-501-2417" };               //Data generated with FakeNameGenerator
-            customer1.Addresses.Add("Neighbor Street 1.", 0.5f);
-            Customer customer2 = new Customer() { Id = 1, Name = "Joann Carter", Addresses = new Dictionary<string, float>(), PhoneNumber = "703-786-3082" };
-            customer2.Addresses.Add("Perine Street 10.", 4.2f);
-            Customer customer3 = new Customer() { Id = 2, Name = "Daniel Samora", Addresses = new Dictionary<string, float>(), PhoneNumber = "931-787-9264" };
-            customer3.Addresses.Add("Glory Road 13.", 2.4f);
-            Customer customer4 = new Customer() { Id = 3, Name = "Scott Washington", Addresses = new Dictionary<string, float>(), PhoneNumber = "415-377-7029" };
-            customer4.Addresses.Add("Roosevelt Street 2.", 1.2f);
-            Customer customer5 = new Customer() { Id = 4, Name = "Roy Peck", Addresses = new Dictionary<string, float>(), PhoneNumber = "903-783-9992" };
-            customer5.Addresses.Add("Hall Place 211.", 3.6f);
-            Customer customer6 = new Customer() { Id = 5, Name = "Donald Gaddy", Addresses = new Dictionary<string, float>(), PhoneNumber = "505-331-8194" };
-            customer6.Addresses.Add("Faraway Street 738.", 8.2f);
-            Customer customer7 = new Customer() { Id = 6, Name = "Keith Wolf", Addresses = new Dictionary<string, float>(), PhoneNumber = "406-630-9883" };
-            customer7.Addresses.Add("Reel Avenue 5.", 5.8f);            
+            Customer customer1 = new Customer() { Id = 7, Name = "John Doe", PhoneNumber = "703-501-2417" };               //Data generated with FakeNameGenerator
+            Customer customer2 = new Customer() { Id = 1, Name = "Joann Carter", PhoneNumber = "703-786-3082" };
+            Customer customer3 = new Customer() { Id = 2, Name = "Daniel Samora", PhoneNumber = "931-787-9264" };
+            Customer customer4 = new Customer() { Id = 3, Name = "Scott Washington", PhoneNumber = "415-377-7029" };
+            Customer customer5 = new Customer() { Id = 4, Name = "Roy Peck", PhoneNumber = "903-783-9992" };
+            Customer customer6 = new Customer() { Id = 5, Name = "Donald Gaddy", PhoneNumber = "505-331-8194" };
+            Customer customer7 = new Customer() { Id = 6, Name = "Keith Wolf", PhoneNumber = "406-630-9883" };
 
+            Address address1 = new Address() { Id = 1, Street = "Perine Street 10.", Distance = 4.2f, CustomerId = 1 };
+            Address address2 = new Address() { Id = 2, Street = "Glory Road 13.", Distance = 2.4f, CustomerId = 2 };
+            Address address3 = new Address() { Id = 3, Street = "Roosevelt Street 2.", Distance = 1.2f, CustomerId = 3 };
+            Address address4 = new Address() { Id = 4, Street = "Hall Place 211.", Distance = 3.6f, CustomerId = 4 };
+            Address address5 = new Address() { Id = 5, Street = "Faraway Street 738.", Distance = 8.2f, CustomerId = 5 };
+            Address address6 = new Address() { Id = 6, Street = "Reel Avenue 5.", Distance = 5.8f, CustomerId = 6 };
+            Address address7 = new Address() { Id = 7, Street = "Neighbor Street 1.", Distance = 0.5f, CustomerId = 7 };
+            Address address8 = new Address() { Id = 8, Street = "Neighbor Street 15.", Distance = 0.6f, CustomerId = 1 };
+            Address address9 = new Address() { Id = 9, Street = "Faraway Street 240", Distance = 6.5f, CustomerId = 2 };
 
 
             modelBuilder.Entity<Pizza>().HasData(pizzaMargherita, pizzaHawaii, pizzaPepperoni, pizzaSupreme);
             modelBuilder.Entity<Courier>().HasData(courierCarl, courierCharlie, courierChloe);
             modelBuilder.Entity<Customer>().HasData(customer1, customer2, customer3, customer4, customer5, customer6, customer7);
+            modelBuilder.Entity<Address>().HasData(address1, address2, address3, address4, address5, address6, address7, address8, address9);
 
         }
     }

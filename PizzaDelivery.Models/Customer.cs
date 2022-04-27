@@ -18,11 +18,6 @@ namespace PizzaDelivery.Models
         [StringLength(50)]
         public string Name { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        [NotMapped]         //remove
-        public Dictionary<string, float> Addresses { get; set; }              // float: distance from the restaurant, used for calculating the travel time of the couriers
-
         public string SelectedAddress { get; set; }        
 
         [Required]
@@ -33,6 +28,14 @@ namespace PizzaDelivery.Models
 
         [NotMapped]
         public virtual Order Order { get; set; }
+
+        [NotMapped]
+        public virtual ICollection<Address> Addresses { get; set; }
+
+        public Customer()
+        {
+            Addresses = new HashSet<Address>();
+        }
         public override string ToString()
         {
             return $"{Id}. {Name} {PhoneNumber}";
