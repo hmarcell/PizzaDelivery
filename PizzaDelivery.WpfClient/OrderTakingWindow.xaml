@@ -18,7 +18,7 @@
         <StackPanel Grid.Column="0">
             <Label Content="Phone Number:" Background="LightGreen" Padding="5"></Label>
             <TextBox Text="{Binding PhoneNumber}" Padding="5"></TextBox>                                 <!--itt hibakezelés: valoban telefonszámot kapunk-->
-            <Button Content="Select" Command="{Binding CheckPhoneNumber}" Padding="5"></Button>                  <!--ez majd berakja a stackpanelbe a cimeket ha megegyezik a telefonszam-->
+            <Button Content="Select" Command="{Binding CheckPhoneNumber}" Padding="5"></Button>
             <Label Content="Name:" Background="LightGreen" Padding="5"></Label>
             <TextBox Text="{Binding SelectedCustomer.Name}" Padding="5"></TextBox>
             <ListBox ItemsSource="{Binding CustomerAddresses}" SelectedItem="{Binding SelectedAddress}">                                                    <!--async kell delay/sleepelni a taskokat-->
