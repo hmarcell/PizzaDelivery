@@ -30,7 +30,7 @@ namespace PizzaDelivery.Models
 
         List<Order> orders;
         [NotMapped]
-        public virtual List<Order> Orders { get => orders; set => SetProperty(ref orders, value); }         //Contains the orders, in which the given pizza appears
+        public virtual List<Order> Orders { get => orders; set => SetProperty(ref orders, value); }         
 
         public override string ToString()
         {

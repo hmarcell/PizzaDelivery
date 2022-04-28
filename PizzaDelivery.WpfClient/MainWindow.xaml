@@ -20,6 +20,9 @@
         </ListBox>
         <StackPanel Grid.Column="1">
             <Button Content="Rendelésfelvétel" Command="{Binding OpenOrderTakingWindow}" Padding="10" Background="LightGreen"></Button>
+            <ListBox ItemsSource="{Binding Couriers}">
+                
+            </ListBox>
         </StackPanel>
     </Grid>
 </Window>

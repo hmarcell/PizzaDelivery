@@ -65,7 +65,7 @@ namespace PizzaDelivery.Data
                 .HasForeignKey(a => a.CustomerId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            DbSeed(modelBuilder);
+            //DbSeed(modelBuilder);
 
         }
 

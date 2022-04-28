@@ -21,6 +21,7 @@ namespace PizzaDelivery.WpfClient.ViewModels
         public ICommand UpdatePizzaCommand { get; set; }
         public ICommand OpenOrderTakingWindow { get; set; }
         public ObservableCollection<Order> Orders { get; set; }
+        public ObservableCollection<Courier> Couriers { get; set; }
         public static bool IsInDesignMode
         {
             get
@@ -44,6 +45,7 @@ namespace PizzaDelivery.WpfClient.ViewModels
         public void RefreshCollections()
         { 
             Orders = new ObservableCollection<Order>(Repository.OrderRepo.ReadAll());
+            Couriers = new ObservableCollection<Courier>(Repository.CourierRepo.ReadAll());
         }
 
         public void SetupCommands()

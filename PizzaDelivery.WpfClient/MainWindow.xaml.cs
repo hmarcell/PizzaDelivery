@@ -1,4 +1,5 @@
-﻿using PizzaDelivery.Data;
+﻿using ODataService.Database;
+using PizzaDelivery.Data;
 using PizzaDelivery.Models;
 using PizzaDelivery.Repository;
 using System;
@@ -26,6 +27,39 @@ namespace PizzaDelivery.WpfClient
         public MainWindow()
         {
             InitializeComponent();
+            //AddPizza();
+        }
+
+        async void AddPizza()
+        {
+            var serviceRoot = "https://odataservice20220428121656.azurewebsites.net/ODataService.svc/";
+            ODataServiceService service = new ODataServiceService(new Uri(serviceRoot));
+            ODataService.Database.Customer customer = new ODataService.Database.Customer()
+            {
+                Oid = 0,
+                Name = "John Doe",
+                Phone = "+36701234567",
+                Addresses = new System.Collections.ObjectModel.Collection<ODataService.Database.Address>(),
+                Orders = new System.Collections.ObjectModel.Collection<ODataService.Database.Order>()
+            };
+            ODataService.Database.Address address = new ODataService.Database.Address()
+            {
+                Oid = 0,
+                City = "Budapest",
+                Customer = customer,
+                HouseNumber = "41",
+                Street = "Vaci",
+                StreetType = "Street"
+            };
+            service.AddToOrder(new ODataService.Database.Order()
+            {
+                Oid = 0,
+                Address = address,
+                Customer = customer,
+                Description = "ground floor, please ring :)",
+                OrderLines = new System.Collections.ObjectModel.Collection<OrderLine>()
+            });
+            service.EndSaveChanges(service.BeginSaveChanges((arg) => { }, null));
         }
 
     }
