@@ -4,12 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PizzaDelivery.WpfClient"
+        xmlns:vms="clr-namespace:PizzaDelivery.WpfClient.ViewModels"
         mc:Ignorable="d"
-        Title="New Customer" Height="450" Width="281">
+        Title="New Customer" Height="298" Width="281">
+    <Window.DataContext>
+        <vms:NewCustomerViewModel/>
+    </Window.DataContext>
     <Grid>
         <StackPanel>
+            <Label Content="Phone Number" Padding="10" Background="LightGreen"/>
+            <TextBox Text="{Binding PhoneNumber}" Padding="10"/>
             <Label Content="Name:" Padding="10" Background="LightGreen"/>
-            <TextBox />
+            <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Padding="10"/>
+            <Label Content="Address: " Padding="10" Background="LightGreen"/>
+            <TextBox Text="{Binding Address, UpdateSourceTrigger=PropertyChanged}" Padding="10"/>
+            <Button Content="Add Customer" Command="{Binding AddCustomerCommand}" Click="Button_Click" Padding="10"/>
+
         </StackPanel>
     </Grid>
 </Window>

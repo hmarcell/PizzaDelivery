@@ -21,10 +21,14 @@ namespace PizzaDelivery.WpfClient
     /// </summary>
     public partial class OrderTakingWindow : Window
     {
-        public OrderTakingWindow(/*IMainRepository Repository*/)
+        public OrderTakingWindow()
         {
             InitializeComponent();
-            //this.DataContext = new OrderTakingViewModel(Repository);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
         }
     }
 }

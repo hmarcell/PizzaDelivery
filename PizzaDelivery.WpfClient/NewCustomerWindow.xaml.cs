@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PizzaDelivery.WpfClient.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,16 @@ namespace PizzaDelivery.WpfClient
     /// </summary>
     public partial class NewCustomerWindow : Window
     {
-        public NewCustomerWindow()
+        public NewCustomerWindow(string PhoneNumber)
         {
             InitializeComponent();
+            this.DataContext = new NewCustomerViewModel();
+            (this.DataContext as NewCustomerViewModel).PhoneNumber = PhoneNumber;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
         }
     }
 }

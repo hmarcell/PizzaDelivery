@@ -27,5 +27,10 @@ namespace PizzaDelivery.Models
         public virtual Order Order { get; set; }
 
         public CourierStatus Status { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Name} [{Status}]";
+        }
     }
 }

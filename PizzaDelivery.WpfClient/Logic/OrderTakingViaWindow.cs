@@ -9,9 +9,9 @@ namespace PizzaDelivery.WpfClient.Logic
 {
     public class OrderTakingViaWindow : IOrderTakingService
     {
-        public void OpenWindow(IMainRepository Repository)
+        public void OpenWindow()
         {
-            new OrderTakingWindow(Repository).ShowDialog();
+            new OrderTakingWindow().ShowDialog();
         }
     }
 }

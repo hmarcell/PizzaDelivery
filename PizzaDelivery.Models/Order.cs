@@ -41,5 +41,9 @@ namespace PizzaDelivery.Models
 
         [NotMapped]
         public virtual Address Address { get; set; }
+        //public override string ToString()
+        //{
+        //    return $"{Id} {Customer} {Address.Street} {Pizza}";
+        //}
     }
 }

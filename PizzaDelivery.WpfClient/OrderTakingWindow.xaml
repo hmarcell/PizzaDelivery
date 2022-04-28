@@ -21,8 +21,20 @@
             <Button Content="Select" Command="{Binding CheckPhoneNumber}" Padding="5"></Button>
             <Label Content="Name:" Background="LightGreen" Padding="5"></Label>
             <TextBox Text="{Binding SelectedCustomer.Name}" Padding="5"></TextBox>
+            <Label Content="Addresses:" Padding="5" Background="LightGreen"/>
             <ListBox ItemsSource="{Binding CustomerAddresses}" SelectedItem="{Binding SelectedAddress}">                                                    <!--async kell delay/sleepelni a taskokat-->
             </ListBox>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <Label Content="Menu" HorizontalContentAlignment="Center" Padding="5" Background="PaleVioletRed"/>
+            <ListBox ItemsSource="{Binding Pizzas}" SelectedItem="{Binding SelectedPizza}">
+
+            </ListBox>
+            <Label Content="Couriers" HorizontalContentAlignment="Center" Padding="5" Background="LightBlue"/>
+            <ListBox ItemsSource="{Binding Couriers}" SelectedItem="{Binding SelectedCourier}">
+
+            </ListBox>
+            <Button Content="Confirm Order" Command="{Binding ConfirmOrder}" Click="Button_Click" Padding="5"/>
         </StackPanel>
     </Grid>
 </Window>

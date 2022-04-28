@@ -20,7 +20,7 @@ namespace PizzaDelivery.WpfClient.ViewModels
         public IMainRepository Repository { get; set; }
         public ICommand UpdatePizzaCommand { get; set; }
         public ICommand OpenOrderTakingWindow { get; set; }
-        public ObservableCollection<Pizza> Pizzas { get; set; }
+        public ObservableCollection<Order> Orders { get; set; }
         public static bool IsInDesignMode
         {
             get
@@ -37,28 +37,33 @@ namespace PizzaDelivery.WpfClient.ViewModels
         public MainWindowViewModel(IMainRepository Repository)
         {
             this.Repository = Repository;
-            SetupCollections();
+            RefreshCollections();
             SetupCommands();            
         }
 
-        public void SetupCollections()
+        public void RefreshCollections()
         { 
-            Pizzas = new ObservableCollection<Pizza>(Repository.PizzaRepo.ReadAll());
+            Orders = new ObservableCollection<Order>(Repository.OrderRepo.ReadAll());
         }
+
         public void SetupCommands()
         {
-            UpdatePizzaCommand = new RelayCommand(() =>
-            {
-                Pizza newPizza = Repository.PizzaRepo.Read(1);
-                newPizza.Price = 1234567;
-                Repository.PizzaRepo.Update(newPizza);
-                Pizzas = new ObservableCollection<Pizza>(Repository.PizzaRepo.ReadAll());
+            //UpdatePizzaCommand = new RelayCommand(() =>
+            //{
+            //    Pizza newPizza = Repository.PizzaRepo.Read(1);
+            //    newPizza.Price = 1234567;
+            //    Repository.PizzaRepo.Update(newPizza);
+            //    Pizzas = new ObservableCollection<Pizza>(Repository.PizzaRepo.ReadAll());
 
-                OnPropertyChanged("Pizzas");
-            });
+            //    OnPropertyChanged("Pizzas");
+            //});
             OpenOrderTakingWindow = new RelayCommand(() =>
             {
-                new OrderTakingWindow(Repository).ShowDialog();
+                if ((bool)new OrderTakingWindow().ShowDialog())
+                {
+                    RefreshCollections();
+                    OnPropertyChanged(nameof(Orders));
+                }               
             });
         }
     }

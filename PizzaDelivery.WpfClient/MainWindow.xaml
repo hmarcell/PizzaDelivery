@@ -16,8 +16,7 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding Pizzas}" x:Name="lb" Grid.Column="0">
-            
+        <ListBox ItemsSource="{Binding Orders}" x:Name="lb" Grid.Column="0">
         </ListBox>
         <StackPanel Grid.Column="1">
             <Button Content="Rendelésfelvétel" Command="{Binding OpenOrderTakingWindow}" Padding="10" Background="LightGreen"></Button>

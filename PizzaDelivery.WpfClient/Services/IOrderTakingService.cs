@@ -6,6 +6,6 @@ namespace PizzaDelivery.WpfClient.Logic
 {
     public interface IOrderTakingService
     {
-        void OpenWindow(IMainRepository Repository);
+        void OpenWindow();
     }
 }
