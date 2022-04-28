@@ -19,6 +19,8 @@
         <ListBox ItemsSource="{Binding Pizzas}" x:Name="lb" Grid.Column="0">
             
         </ListBox>
-        <Button Grid.Column="1" Content="gomb" Command="{Binding OpenOrderTakingWindow}"></Button>
+        <StackPanel Grid.Column="1">
+            <Button Content="Rendelésfelvétel" Command="{Binding OpenOrderTakingWindow}" Padding="10" Background="LightGreen"></Button>
+        </StackPanel>
     </Grid>
 </Window>

@@ -16,9 +16,7 @@ namespace PizzaDelivery.Models
         public int Id { get; set; }
 
         [StringLength(50)]
-        public string Name { get; set; }
-
-        public string SelectedAddress { get; set; }        
+        public string Name { get; set; }    
 
         [Required]
         public string PhoneNumber { get; set; }
